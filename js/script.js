@@ -14,5 +14,47 @@ var studente = {
 
 // Ciclo for in per stampare le proprietà dell'oggetto.
 for (var key in studente){
-  console.log(studente[key]);
+  // console.log(studente[key]);
 }
+
+// Creazione array di oggetti.
+var studenti =
+[
+  {
+    "nome": "Gianni",
+    "cognome": "Rossi",
+    "eta": 17
+  },
+
+  {
+    "nome": "Antonio",
+    "cognome": "Bianchi",
+    "eta": 18
+  },
+
+  {
+    "nome": "Andrea",
+    "cognome": "Grande",
+    "eta": 19
+  },
+];
+
+// Ciclo for per scorrere gli oggetti nell'array
+// (gli oggetti sono contenuti in un array, da preferire quindi al for in)
+for (var i = 0; i < studenti.length; i++){
+  console.log(studenti[i].nome + " " + studenti[i].cognome);// Stampa del nome e del cognome.
+}
+
+
+//leggere gli elementi con un ciclo
+// for (var i = 0; i <libreria.length; i++){
+//   console.log(i);
+//   for (var k in libreria[i]){
+//     console.log(k + ': ' + libreria[i][k]);
+//   }
+// }
+
+//stampiamo tutti i titoli dei libri
+// for (var i = 0; i <libreria.length; i++){
+//   console.log(libreria[i].titolo);
+// }
