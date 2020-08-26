@@ -45,16 +45,23 @@ for (var i = 0; i < studenti.length; i++){
   console.log(studenti[i].nome + " " + studenti[i].cognome);// Stampa del nome e del cognome.
 }
 
-
 //leggere gli elementi con un ciclo
-// for (var i = 0; i <libreria.length; i++){
+// for (var i = 0; i <studenti.length; i++){
 //   console.log(i);
-//   for (var k in libreria[i]){
-//     console.log(k + ': ' + libreria[i][k]);
+//   for (var k in studenti[i]){
+//     console.log(k + ': ' + studenti[i][k]);
 //   }
 // }
 
-//stampiamo tutti i titoli dei libri
-// for (var i = 0; i <libreria.length; i++){
-//   console.log(libreria[i].titolo);
-// }
+// Prompt per inserimento dati da parte dell'utente.
+var nome = prompt("Inserisci il nome");
+var cognome = prompt("Inserisci il cognome");
+var eta = parseInt(prompt("Inserisci l'età"));
+
+// Crezione/push del nuovo oggetto nell'array.
+studenti.push({
+  nome: nome,
+  cognome: cognome,
+  eta: eta
+});
+// console.log(studenti);
