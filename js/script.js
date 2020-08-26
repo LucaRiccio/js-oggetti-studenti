@@ -15,6 +15,7 @@ var studente = {
 // Ciclo for in per stampare le proprietà dell'oggetto.
 for (var key in studente){
   // console.log(studente[key]);
+  $(".oggetto-studente").append("<li>" + studente[key] + "</li>"); // Stampa/aggiunta al DOM
 }
 
 // Creazione array di oggetti.
@@ -39,20 +40,6 @@ var studenti =
   },
 ];
 
-// Ciclo for per scorrere gli oggetti nell'array
-// (gli oggetti sono contenuti in un array, da preferire quindi al for in)
-for (var i = 0; i < studenti.length; i++){
-  console.log(studenti[i].nome + " " + studenti[i].cognome);// Stampa del nome e del cognome.
-}
-
-//leggere gli elementi con un ciclo
-// for (var i = 0; i <studenti.length; i++){
-//   console.log(i);
-//   for (var k in studenti[i]){
-//     console.log(k + ': ' + studenti[i][k]);
-//   }
-// }
-
 // Prompt per inserimento dati da parte dell'utente.
 var nome = prompt("Inserisci il nome");
 var cognome = prompt("Inserisci il cognome");
@@ -64,4 +51,18 @@ studenti.push({
   cognome: cognome,
   eta: eta
 });
-// console.log(studenti);
+
+// Ciclo for per scorrere gli oggetti nell'array
+// (gli oggetti sono contenuti in un array, da preferire quindi al for in)
+for (var i = 0; i < studenti.length; i++){
+  //console.log(studenti[i].nome + " " + studenti[i].cognome);// Stampa del nome e del cognome.
+  $(".lista-studenti").append("<li>" + studenti[i].nome + " " + studenti[i].cognome + "</li>"); // Stampa/aggiunta al DOM.
+}
+
+// Se avessi voluto leggere tutti gli elementi e non solo il nome ed il cognome..
+// for (var i = 0; i <studenti.length; i++){
+//   console.log(i);
+//   for (var k in studenti[i]){
+//     console.log(k + ': ' + studenti[i][k]);
+//   }
+// }
