@@ -5,64 +5,62 @@
 // Usate prima i console.log e poi provare a stampare con jQuery:
 // BONUS: Provate ad utilizzare Handlebars.
 
-// Creo l'oggetto studente con le proprietà richieste.
-var studente = {
-  "nome": "Luca",
-  "cognome": "Riccio",
-  "eta": 32
-};
+$(document).ready(function(){
 
-// Ciclo for in per stampare le proprietà dell'oggetto.
-for (var key in studente){
-  // console.log(studente[key]);
-  $(".oggetto-studente").append("<li>" + studente[key] + "</li>"); // Stampa/aggiunta al DOM
-}
+  // Creo l'oggetto studente con le proprietà richieste.
+  var studente = {
+    "nome": "Luca",
+    "cognome": "Riccio",
+    "eta": 32
+  };
 
-// Creazione array di oggetti.
-var studenti =
-[
-  {
-    "nome": "Gianni",
-    "cognome": "Rossi",
-    "eta": 17
-  },
+  // Ciclo for in per stampare le proprietà dell'oggetto.
+  for (var key in studente){
+    // console.log(studente[key]); Per stampa in console
+  }
 
-  {
-    "nome": "Antonio",
-    "cognome": "Bianchi",
-    "eta": 18
-  },
+  // Creazione array di oggetti.
+  var studenti =
+  [
+    {
+      "nome": "Gianni",
+      "cognome": "Rossi",
+      "eta": 17
+    },
 
-  {
-    "nome": "Andrea",
-    "cognome": "Grande",
-    "eta": 19
-  },
-];
+    {
+      "nome": "Antonio",
+      "cognome": "Bianchi",
+      "eta": 18
+    },
 
-// Prompt per inserimento dati da parte dell'utente.
-var nome = prompt("Inserisci il nome");
-var cognome = prompt("Inserisci il cognome");
-var eta = parseInt(prompt("Inserisci l'età"));
+    {
+      "nome": "Andrea",
+      "cognome": "Grande",
+      "eta": 19
+    },
+  ];
 
-// Crezione/push del nuovo oggetto nell'array.
-studenti.push({
-  nome: nome,
-  cognome: cognome,
-  eta: eta
+  // Prompt per inserimento dati da parte dell'utente.
+  var nome = prompt("Inserisci il nome");
+  var cognome = prompt("Inserisci il cognome");
+  var eta = parseInt(prompt("Inserisci l'età"));
+
+  // Crezione/push del nuovo oggetto nell'array.
+  studenti.push({
+    "nome": nome,
+    "cognome": cognome,
+    "eta": eta
+  });
+
+  // Ciclo for per scorrere gli oggetti nell'array (gli oggetti sono contenuti in un array, da preferire quindi al for in).
+  for (var i = 0; i < studenti.length; i++){
+    //console.log(studenti[i].nome + " " + studenti[i].cognome);// Stampa in console.
+    console.log(studenti[i]);
+    var inserimento = studenti[i]; // Diventerà il mio context di handlebars.
+    var source = $("#entry-template").html(); // stringa di Handlebars "tradotta" in jQuery.
+    var template = Handlebars.compile(source);
+    var html = template(inserimento); // Passo la var in cui ho salvato gli elementi/oggetti dell'array (cioè studenti[i]).
+    $("#stampa").append(html); // Aggiungo/Appendo il clone al DOM.
+  }
 });
-
-// Ciclo for per scorrere gli oggetti nell'array
-// (gli oggetti sono contenuti in un array, da preferire quindi al for in)
-for (var i = 0; i < studenti.length; i++){
-  //console.log(studenti[i].nome + " " + studenti[i].cognome);// Stampa del nome e del cognome.
-  $(".lista-studenti").append("<li>" + studenti[i].nome + " " + studenti[i].cognome + "</li>"); // Stampa/aggiunta al DOM.
-}
-
-// Se avessi voluto leggere tutti gli elementi e non solo il nome ed il cognome..
-// for (var i = 0; i <studenti.length; i++){
-//   console.log(i);
-//   for (var k in studenti[i]){
-//     console.log(k + ': ' + studenti[i][k]);
-//   }
-// }
